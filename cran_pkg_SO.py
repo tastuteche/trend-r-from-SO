@@ -71,9 +71,8 @@ weights_df = pd.DataFrame({'term': cv.get_feature_names(), 'weight': weights})
 weights_df_top_100 = weights_df.sort_values(
     by='weight', ascending=False).head(100)
 plot_top(weights_df_top_100, 'term', 'weight')
+print(tabulate(weights_df_top_100.set_index(
+    "term"), tablefmt="markdown", headers="keys"))
 
 #unigrams['year'] = questions.year
 # print(bigrams)
-
-print(tabulate(weights_df_top_100.set_index(
-    "term"), tablefmt="markdown", headers="keys"))
